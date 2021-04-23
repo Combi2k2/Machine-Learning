@@ -31,6 +31,11 @@ cur_axes.axes.get_yaxis().set_ticks([])
 plt.savefig('EX.png', bbox_inches='tight', dpi = 600)
 plt.show()
 
+def softmax(V):
+    e_V = np.exp(V - np.max(V, axis = 0, keepdims = True))
+    Z = e_V / e_V.sum(axis = 0)
+    return Z
+
 ## One-hot coding
 from scipy import sparse 
 def convert_labels(y, C = 3):
